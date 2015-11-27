@@ -1,0 +1,13 @@
+<h1>ANSWER QUESTIONS!</h1>
+
+<% @questionaire.each do |p| %>
+    <h2><%= p.option %></h2>
+    <form action='/answerqnaire' method='get'>
+        <% p.examples.each_with_index do |b, i| %>
+            <input type="radio" name="select" value=i+1><%=i+1%>. <%=b.pick%>
+            <br>
+        <% end %>
+        <input type="submit" value="완료!">
+    </form>
+    <br>
+<% end %>

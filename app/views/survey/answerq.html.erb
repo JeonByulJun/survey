@@ -1,0 +1,10 @@
+<h1>Answer Your Questions!!</h1>
+
+<% @qlist.each_with_index do |p,i| %>
+    <p><%=i+1%>번째 질문!</p>
+    <form action='/show' method='get'>
+        <input type="hidden" value = <%=p.id%> name="id">
+        <input type="submit" value=<%=p.title%>>
+    </form>
+    <br>
+<% end %>

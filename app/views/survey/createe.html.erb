@@ -1,0 +1,15 @@
+<% if @example != nil %>
+    <% @example.each_with_index do |p, i| %>
+        <p><%=i+1%>.<%=p.pick%></p>
+    <% end %>
+<% end %>
+<form action="/createe" method="get">
+    <p>Put Your Options!</p>
+    <input type="text" name="option">
+    <input type="hidden" name="title" value=<%=@title%>>    
+    <input type="hidden" name="questionid" value=<%=@questions[0].id%>> 
+    
+    <input type="submit" value="add" name="index2">
+    <input type="submit" value="done" name="index2">    
+</form>
+

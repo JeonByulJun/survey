@@ -1,0 +1,32 @@
+<h1>HELLO THIS IS SURVEY!!</h1>
+
+
+<% if !current_quser && !current_auser%>
+    <p>Sign in As A QUESTIONER</p>
+    <a href ="/qusers/sign_in">질문자 로그인</a><br>
+    <a href ="/qusers/sign_up">질문자 회원가입</a>
+<% end %>
+<% if current_quser %>
+<a href ="/createtitle">질문자!</a>
+<% end %>
+
+
+<% if !current_auser && !current_quser%>
+    <p>Sign in As An ANSWERER</p>
+    <a href ="/ausers/sign_in">답변자 로그인</a><br>
+    <a href ="/ausers/sign_up">답변자 회원가입</a>
+<% end %>
+<% if current_auser %>
+<a href ="/answerq">답변자!</a>
+<% end %>
+
+<br>
+<br>
+<br>
+<% if current_quser || current_auser %>
+    <% if current_quser %>
+        <a href ="/qusers/sign_out" data-method="delete">로그아웃</a>
+    <% else %>
+        <a href ="/ausers/sign_out" data-method="delete">로그아웃</a>
+    <% end %>
+<% end %>
