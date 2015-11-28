@@ -1,13 +1,17 @@
 <h1>ANSWER QUESTIONS!</h1>
+<form action='/answerqnaire' method='get'>
+    <% @questionaire.each_with_index do |p,index| %>
+        <h2><%= p.option %></h2>
+    
+            <% p.examples.each_with_index do |b, i| %>
+                <input type="radio" name="selectedid[<%=index%>]" value=<%=b.id%>><%=i+1%>. <%=b.pick%>
+                <br>
+            <% end %>
 
-<% @questionaire.each do |p| %>
-    <h2><%= p.option %></h2>
-    <form action='/answerqnaire' method='get'>
-        <% p.examples.each_with_index do |b, i| %>
-            <input type="radio" name="select" value=i+1><%=i+1%>. <%=b.pick%>
-            <br>
-        <% end %>
-        <input type="submit" value="완료!">
-    </form>
-    <br>
-<% end %>
+    
+        <br>
+    
+    <% end %>
+    <input type="hidden" name="qid" value="<%=@questionaire[0].question_id%>">
+    <input type="submit" value="완료!">
+</form>

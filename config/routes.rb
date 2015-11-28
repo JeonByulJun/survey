@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/createe' => 'survey#createe'
   get '/show' => 'survey#show'
   get '/answerqnaire' => 'survey#answerqnaire'
+  get '/result' => 'survey#result'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111102202) do
+ActiveRecord::Schema.define(version: 20151127032952) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "auser_id"
@@ -39,9 +39,17 @@ ActiveRecord::Schema.define(version: 20151111102202) do
   add_index "ausers", ["email"], name: "index_ausers_on_email", unique: true
   add_index "ausers", ["reset_password_token"], name: "index_ausers_on_reset_password_token", unique: true
 
+  create_table "checks", force: :cascade do |t|
+    t.integer  "auser_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "examples", force: :cascade do |t|
     t.integer  "questionaire_id"
     t.text     "pick"
+    t.integer  "snum"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

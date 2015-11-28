@@ -1,0 +1,13 @@
+<h1>Your Result</h1>
+
+<% @questiontitle.each_with_index do |p, i| %>
+    <h3><%=p.title%></h3>
+    <% p.questionaires.each_with_index do |b, index| %>
+        <h5><%=b.option%></h5>
+        <% b.examples.each_with_index do |k, id| %>
+            <p><%=id+1%>. <%=k.pick%> : <%=k.snum%></p>
+        <% end %>
+    <% end %>
+<% end %>
+
+<a href="/">Return to Root</a>
