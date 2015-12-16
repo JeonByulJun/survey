@@ -73,11 +73,9 @@ class SurveyController < ApplicationController
     end
     def answerqnaire
         params[:selectedid].each do |temp|
-            selectede = Example.where(id: temp)
-            selectede.each_with_index do |p, index|
-                p.snum += 1
-                p.save
-            end
+            selectede = Example.find(temp[1])
+            selectede.snum += 1
+            selectede.save
         end
         Check.create(auser_id: current_auser.id, question_id: params[:qid])
         redirect_to '/answerq'
